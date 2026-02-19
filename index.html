@@ -8,30 +8,47 @@
   <title>Jasa Pembuatan Web - Portofolio Saya</title>
 </head>
 <style>
-  /* Misalnya id form kamu adalah 'contact-form' */
+  /* Container Form */
   #Kontak {
     display: none;
-    /* Sembunyikan */
+    /* Sembunyi secara default */
     position: fixed;
-    /* Opsional: agar melayang di tengah */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     background: white;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
   }
-  
+
+  /* Latar belakang gelap saat form muncul */
   #overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Warna hitam transparan */
-  z-index: 999; /* Di bawah form, tapi di atas konten lain */
-}
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    backdrop-filter: blur(2px);
+    /* Efek blur estetik */
+  }
+
+  /* Tombol Close di pojok kanan atas form */
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #666;
+  }
 </style>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -51,14 +68,15 @@
   </section>
 
   <div id="overlay"></div>
-  <section id="Kontak" class="my-20 px-5">
+
+  <section id="Kontak">
+    <span class="btn-close" id="closeForm">&times;</span>
     <h3 class="text-2xl font-bold text-center mb-6">Hubungi Saya</h3>
-    <form action="https://formspree.io/f/link-kamu" method="POST"
-      class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg">
+    <form action="https://formspree.io/f/link-kamu" method="POST" class="flex flex-col gap-4">
       <input type="email" name="email" placeholder="Email kamu"
-        class="border p-2 w-full rounded-lg mb-2 focus:ring-2 focus:ring-blue-500 outline-none">
+        class="border p-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
       <textarea name="message" placeholder="Pesan untuk saya"
-        class="border p-2 w-full rounded-lg mb-2 focus:ring-2 focus:ring-blue-500 outline-none" rows="4"></textarea>
+        class="border p-2 w-full rounded-lg h-32 focus:ring-2 focus:ring-blue-500 outline-none" required></textarea>
       <button type="submit"
         class="bg-blue-600 text-white w-full py-2 rounded-lg font-bold hover:bg-blue-700 transition">Kirim
         Pesan</button>
@@ -98,20 +116,30 @@
     </div>
   </section>
   <script>
-    // Pastikan menggunakan tanda kutip yang benar
     const btnKontak = document.querySelector('a[href="#kontak"]');
     const sectionKontak = document.getElementById('Kontak');
+    const overlay = document.getElementById('overlay');
+    const btnClose = document.getElementById('closeForm');
 
+    // Fungsi membuka form
     btnKontak.addEventListener('click', function (e) {
       e.preventDefault();
-
-      // Logika menampilkan/menyembunyikan
-      if (sectionKontak.style.display === 'none' || sectionKontak.style.display === '') {
-        sectionKontak.style.display = 'block';
-      } else {
-        sectionKontak.style.display = 'none';
-      }
+      sectionKontak.style.display = 'block';
+      overlay.style.display = 'block';
     });
+
+    // Fungsi menutup form (Klik tombol X)
+    btnClose.addEventListener('click', function () {
+      sectionKontak.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+
+    // Fungsi menutup form (Klik di area luar form/overlay)
+    overlay.addEventListener('click', function () {
+      sectionKontak.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+  </script>
   </script>
 </body>
 
