@@ -72,30 +72,31 @@
   <section id="Kontak">
     <span class="btn-close" id="closeForm">&times;</span>
     <h3 class="text-2xl font-bold text-center mb-6">Hubungi Saya</h3>
-    <!-- modify this form HTML and place wherever you want your form -->
-    <form action="https://formspree.io/f/xpqjlnyy" method="POST">
-      <label>
-        Your email:
-        <input type="email" name="email">
-      </label><tr>
-      <label>
-        Your message:
-        <textarea name="message"></textarea>
-      </label>
-      <!-- your other form fields go here -->
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <form
+  action="https://formspree.io/f/xpqjlnyy"
+  method="POST" class="flex flex-col gap-4"
+>
+  <label>
+    Your email:
+    <input type="email" name="email"class="border p-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"class="border p-2 w-full rounded-lg h-32 focus:ring-2 focus:ring-blue-500 outline-none"required></textarea>>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit"class="bg-blue-600 text-white w-full py-2 rounded-lg font-bold hover:bg-blue-700 transition">Send</button>
+</form>
 
-  <p class="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
-    Saya mahasiswa TI yang siap membantu UMKM Go Digital dengan tampilan web yang modern dan responsif.
-  </p>
-  <div class="mt-8 flex justify-center gap-4">
-    <button class="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">Mulai
-      Proyek</button>
-    <button class="border border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition">Lihat
-      Portofolio</button>
-  </div>
+    <p class="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+      Saya mahasiswa TI yang siap membantu UMKM Go Digital dengan tampilan web yang modern dan responsif.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <button class="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">Mulai
+        Proyek</button>
+      <button class="border border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition">Lihat
+        Portofolio</button>
+    </div>
   </section>
 
   <section class="max-w-6xl mx-auto my-24 px-5 grid md:grid-cols-3 gap-8">
