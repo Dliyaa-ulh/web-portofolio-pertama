@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,59 +9,61 @@
 </head>
 <style>
   /* Misalnya id form kamu adalah 'contact-form' */
-#Kontak {
-  display: none; /* Sembunyikan */
-  position: fixed; /* Opsional: agar melayang di tengah */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
+  #Kontak {
+    display: none;
+    /* Sembunyikan */
+    position: fixed;
+    /* Opsional: agar melayang di tengah */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  #overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Warna hitam transparan */
+  z-index: 999; /* Di bawah form, tapi di atas konten lain */
 }
 </style>
-<script>
-  // Ambil elemen tombol kontak di navbar dan section form-nya
-  const btnKontak = document.querySelector('a[href="#kontak"]');
-  const sectionKontak = document.getElementById('Kontak');
 
-  btnKontak.addEventListener('click', function(e) {
-    e.preventDefault(); // Supaya halaman tidak loncat ke atas/bawah
-    
-    // Cek kalau sedang sembunyi, maka tampilkan. Kalau sudah tampil, sembunyikan.
-    if (sectionKontak.style.display === 'none' || sectionKontak.style.display === '') {
-      sectionKontak.style.display = 'block';
-    } else {
-      sectionKontak.style.display = 'none';
-    }
-  });
-</script>
 <body class="bg-gray-50 text-gray-800 font-sans">
   <nav class="p-5 bg-white shadow-md flex justify-between items-center">
-  <h1 class="text-xl font-bold text-blue-600">DliyaaPorto</h1>
-  <ul class="flex space-x-6 font-medium items-center">
-    <li><a href="#" class="hover:text-blue-500">Home</a></li>
-    <li><a href="#" class="hover:text-blue-500">Project</a></li>
-    <li><a href="#kontak" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Kontak</a></li>
-  </ul>
-</nav>
+    <h1 class="text-xl font-bold text-blue-600">DliyaaPorto</h1>
+    <ul class="flex space-x-6 font-medium items-center">
+      <li><a href="#" class="hover:text-blue-500">Home</a></li>
+      <li><a href="#" class="hover:text-blue-500">Project</a></li>
+      <li><a href="#kontak" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Kontak</a></li>
+    </ul>
+  </nav>
 
-<section class="max-w-6xl mx-auto mt-20 px-5 text-center">
-  <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
-    Bikin Website Bisnismu <span class="text-blue-600">Lebih Keren</span>
-  </h2>
+  <section class="max-w-6xl mx-auto mt-20 px-5 text-center">
+    <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
+      Bikin Website Bisnismu <span class="text-blue-600">Lebih Keren</span>
+    </h2>
   </section>
 
-<section id="Kontak" class="my-20 px-5">
-  <h3 class="text-2xl font-bold text-center mb-6">Hubungi Saya</h3>
-  <form action="https://formspree.io/f/link-kamu" method="POST" class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg">
-    <input type="email" name="email" placeholder="Email kamu" class="border p-2 w-full rounded-lg mb-2 focus:ring-2 focus:ring-blue-500 outline-none">
-    <textarea name="message" placeholder="Pesan untuk saya" class="border p-2 w-full rounded-lg mb-2 focus:ring-2 focus:ring-blue-500 outline-none" rows="4"></textarea>
-    <button type="submit" class="bg-blue-600 text-white w-full py-2 rounded-lg font-bold hover:bg-blue-700 transition">Kirim Pesan</button>
-  </form>
-</section>
+  <div id="overlay"></div>
+  <section id="Kontak" class="my-20 px-5">
+    <h3 class="text-2xl font-bold text-center mb-6">Hubungi Saya</h3>
+    <form action="https://formspree.io/f/link-kamu" method="POST"
+      class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg">
+      <input type="email" name="email" placeholder="Email kamu"
+        class="border p-2 w-full rounded-lg mb-2 focus:ring-2 focus:ring-blue-500 outline-none">
+      <textarea name="message" placeholder="Pesan untuk saya"
+        class="border p-2 w-full rounded-lg mb-2 focus:ring-2 focus:ring-blue-500 outline-none" rows="4"></textarea>
+      <button type="submit"
+        class="bg-blue-600 text-white w-full py-2 rounded-lg font-bold hover:bg-blue-700 transition">Kirim
+        Pesan</button>
+    </form>
+  </section>
 
   <section class="max-w-6xl mx-auto mt-20 px-5 text-center">
     <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
@@ -71,8 +73,10 @@
       Saya mahasiswa TI yang siap membantu UMKM Go Digital dengan tampilan web yang modern dan responsif.
     </p>
     <div class="mt-8 flex justify-center gap-4">
-      <button class="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">Mulai Proyek</button>
-      <button class="border border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition">Lihat Portofolio</button>
+      <button class="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">Mulai
+        Proyek</button>
+      <button class="border border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition">Lihat
+        Portofolio</button>
     </div>
   </section>
 
@@ -93,5 +97,22 @@
       <p class="text-gray-500">Tampilan bersih sesuai tren desain masa kini.</p>
     </div>
   </section>
+  <script>
+    // Pastikan menggunakan tanda kutip yang benar
+    const btnKontak = document.querySelector('a[href="#kontak"]');
+    const sectionKontak = document.getElementById('Kontak');
+
+    btnKontak.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Logika menampilkan/menyembunyikan
+      if (sectionKontak.style.display === 'none' || sectionKontak.style.display === '') {
+        sectionKontak.style.display = 'block';
+      } else {
+        sectionKontak.style.display = 'none';
+      }
+    });
+  </script>
 </body>
+
 </html>
